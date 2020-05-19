@@ -4,6 +4,9 @@ import { ContatoComponent } from "./institucional/contato/contato.component";
 import { HomeComponent } from "./navegacao/home/home.component";
 import { SobreComponent } from "./institucional/sobre/sobre.component";
 import { LoginComponent } from "./institucional/login/login.component";
+import { ClienteComponent } from "./cadastro/cliente/cliente.component";
+import { AuthGuard } from "./guards/guards/auth.guard";
+import { SalaoComponent } from "./cadastro/salao/salao.component";
 
 export const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -11,6 +14,8 @@ export const routes: Routes = [
   { path: "contato", component: ContatoComponent },
   { path: "sobre", component: SobreComponent },
   { path: "login", component: LoginComponent },
+  { path: "cliente", component: ClienteComponent, canActivate: [AuthGuard] },
+  { path: "salao", component: SalaoComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

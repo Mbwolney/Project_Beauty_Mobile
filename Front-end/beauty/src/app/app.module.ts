@@ -8,10 +8,13 @@ import { FooterComponent } from "./navegacao/footer/footer.component";
 import { SobreComponent } from "./institucional/sobre/sobre.component";
 import { ContatoComponent } from "./institucional/contato/contato.component";
 import { HomeComponent } from "./navegacao/home/home.component";
-import { RouterModule } from "@angular/router";
-import { routes } from "./app-routing.module";
 import { APP_BASE_HREF } from "@angular/common";
-import { LoginComponent } from './institucional/login/login.component';
+import { LoginComponent } from "./institucional/login/login.component";
+import { ClienteComponent } from "./cadastro/cliente/cliente.component";
+import { SalaoComponent } from "./cadastro/salao/salao.component";
+import { AuthService } from "./guards/navegacao/menu/auth.service";
+import { AuthGuard } from "./guards/guards/auth.guard";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,13 +25,11 @@ import { LoginComponent } from './institucional/login/login.component';
     ContatoComponent,
     HomeComponent,
     LoginComponent,
+    ClienteComponent,
+    SalaoComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule.forRoot(routes, { useHash: false }),
-  ],
-  providers: [{ provide: APP_BASE_HREF, useValue: "" }],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  providers: [AuthService, AuthGuard, { provide: APP_BASE_HREF, useValue: "" }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
