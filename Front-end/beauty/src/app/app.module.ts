@@ -12,9 +12,11 @@ import { APP_BASE_HREF } from "@angular/common";
 import { LoginComponent } from "./institucional/login/login.component";
 import { ClienteComponent } from "./cadastro/cliente/cliente.component";
 import { SalaoComponent } from "./cadastro/salao/salao.component";
-import { AuthService } from "./guards/navegacao/menu/auth.service";
-import { AuthGuard } from "./guards/guards/auth.guard";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { AlertComponent } from "./componentes/alert/alert.component";
+import { HttpClientModule } from "@angular/common/http";
+import { LoginsalaoComponent } from "./institucional/loginsalao/loginsalao.component";
+import { RegisterComponent } from "./institucional/register/register.component";
 
 @NgModule({
   declarations: [
@@ -27,9 +29,18 @@ import { FormsModule } from "@angular/forms";
     LoginComponent,
     ClienteComponent,
     SalaoComponent,
+    AlertComponent,
+    LoginsalaoComponent,
+    RegisterComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [AuthService, AuthGuard, { provide: APP_BASE_HREF, useValue: "" }],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
+  providers: [{ provide: APP_BASE_HREF, useValue: "" }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
