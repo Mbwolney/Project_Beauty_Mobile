@@ -10,7 +10,7 @@ import { MenuComponent } from "./navegacao/menu/menu.component";
 import { LoginsalaoComponent } from "./institucional/loginsalao/loginsalao.component";
 import { RegisterComponent } from "./institucional/register/register.component";
 
-export const routes: Routes = [
+export const rota: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "home", component: HomeComponent },
   { path: "contato", component: ContatoComponent },
@@ -23,8 +23,8 @@ export const routes: Routes = [
   { path: "salao", component: SalaoComponent },
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes)],
+//   exports: [RouterModule],
+// })
+// export class AppRoutingModule {}

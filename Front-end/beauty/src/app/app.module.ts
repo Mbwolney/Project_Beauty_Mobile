@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
-import { AppRoutingModule } from "./app-routing.module";
+// import { AppRoutingModule, routes } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { MenuComponent } from "./navegacao/menu/menu.component";
 import { FooterComponent } from "./navegacao/footer/footer.component";
@@ -17,6 +17,10 @@ import { AlertComponent } from "./componentes/alert/alert.component";
 import { HttpClientModule } from "@angular/common/http";
 import { LoginsalaoComponent } from "./institucional/loginsalao/loginsalao.component";
 import { RegisterComponent } from "./institucional/register/register.component";
+import { RouterModule } from "@angular/router";
+import { rota } from "./app-routing.module";
+import { LoginService } from "./institucional/login/login.service";
+import { ClienteService } from "./cadastro/cliente/cliente.service";
 
 @NgModule({
   declarations: [
@@ -35,12 +39,17 @@ import { RegisterComponent } from "./institucional/register/register.component";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    // AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    [RouterModule.forRoot(rota, { useHash: false })],
   ],
-  providers: [{ provide: APP_BASE_HREF, useValue: "" }],
+  providers: [
+    LoginService,
+    ClienteService,
+    { provide: APP_BASE_HREF, useValue: "" },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
