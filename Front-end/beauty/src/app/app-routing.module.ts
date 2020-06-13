@@ -1,5 +1,5 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+//import { NgModule } from "@angular/core";
+import { Routes } from "@angular/router";
 import { ContatoComponent } from "./institucional/contato/contato.component";
 import { HomeComponent } from "./navegacao/home/home.component";
 import { SobreComponent } from "./institucional/sobre/sobre.component";
@@ -8,7 +8,7 @@ import { ClienteComponent } from "./cadastro/cliente/cliente.component";
 import { SalaoComponent } from "./cadastro/salao/salao.component";
 import { MenuComponent } from "./navegacao/menu/menu.component";
 import { LoginsalaoComponent } from "./institucional/loginsalao/loginsalao.component";
-import { RegisterComponent } from "./institucional/register/register.component";
+import { AuthGuard } from "./auth.guard";
 
 export const rota: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -18,9 +18,8 @@ export const rota: Routes = [
   { path: "login", component: LoginComponent },
   { path: "loginSalao", component: LoginsalaoComponent },
   { path: "menu", component: MenuComponent },
-  { path: "register", component: RegisterComponent },
-  { path: "cliente", component: ClienteComponent },
-  { path: "salao", component: SalaoComponent },
+  { path: "cliente", component: ClienteComponent, canActivate: [AuthGuard] },
+  { path: "salao", component: SalaoComponent, canActivate: [AuthGuard] },
 ];
 
 // @NgModule({

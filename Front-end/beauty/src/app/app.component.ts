@@ -1,7 +1,4 @@
 import { Component } from "@angular/core";
-import { Router } from "@angular/router";
-import { AuthenticationService } from "./componentes/services";
-import { User } from "./componentes/models";
 
 @Component({
   selector: "a-root",

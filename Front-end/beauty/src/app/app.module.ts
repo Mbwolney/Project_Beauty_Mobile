@@ -13,14 +13,13 @@ import { LoginComponent } from "./institucional/login/login.component";
 import { ClienteComponent } from "./cadastro/cliente/cliente.component";
 import { SalaoComponent } from "./cadastro/salao/salao.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { AlertComponent } from "./componentes/alert/alert.component";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { LoginsalaoComponent } from "./institucional/loginsalao/loginsalao.component";
-import { RegisterComponent } from "./institucional/register/register.component";
 import { RouterModule } from "@angular/router";
 import { rota } from "./app-routing.module";
 import { LoginService } from "./institucional/login/login.service";
 import { ClienteService } from "./cadastro/cliente/cliente.service";
+import { AuthInterceptor } from "./http.interceptor";
 
 @NgModule({
   declarations: [
@@ -33,9 +32,7 @@ import { ClienteService } from "./cadastro/cliente/cliente.service";
     LoginComponent,
     ClienteComponent,
     SalaoComponent,
-    AlertComponent,
     LoginsalaoComponent,
-    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +46,11 @@ import { ClienteService } from "./cadastro/cliente/cliente.service";
     LoginService,
     ClienteService,
     { provide: APP_BASE_HREF, useValue: "" },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })
