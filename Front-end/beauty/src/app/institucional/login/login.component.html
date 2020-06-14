@@ -1,45 +1,68 @@
-<div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col-6">
-      <img src="../../../assets/image/slide02.jpg" class="img-fluid" alt="" />
-    </div>
-    <div class="col-6">
-      <form>
-        <div class="form-group">
-          <label for="username">Email</label>
-          <input
-            type="text"
-            formControlName="username"
-            class="form-control"
-            id="user"
-            name="user"
-            [ngModel]="user"
-            placeholder="nome@exemplo.com"
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Seja Bem-vindo</h1>
+    <p class="lead">
+      Marcar horário no seu salão preferido é muito mais fácil e rápido com
+      Projeto Beauty
+    </p>
+
+    <div class="row justify-content-center">
+      <!-- <style>
+    .mt-200 {
+      margin-top: 150px;
+    }
+    .wd-100 {
+      width: 100%;
+    }
+  </style> -->
+      <div class="col-7">
+        <img
+          src="../../../assets/image/login.jpg"
+          class="img-fluid wd-100"
+          alt=""
+        />
+      </div>
+      <div class="col-5">
+        <form>
+          <div class="form-group">
+            <label for="username">Email</label>
+            <input
+              type="email"
+              formControlName="username"
+              class="form-control"
+              id="user"
+              name="user"
+              [ngModel]="user"
+              placeholder="nome@exemplo.com"
             />
-        </div>
-        <div class="form-group">
-          <label for="password">Senha</label>
-          <input
-            type="password"
-            formControlName="password"
-            class="form-control"
-            id="password"
-            name="password"
-            [ngModel]="password"
-            placeholder="senha"
+          </div>
+          <div class="form-group">
+            <label for="password">Senha</label>
+            <input
+              type="password"
+              formControlName="password"
+              class="form-control"
+              id="password"
+              name="password"
+              [ngModel]="password"
+              placeholder="senha"
             />
-        </div>
-        <div class="form-group">
-          <button
-            class="btn btn-primary"
-            (click)="logar()">
-            Entrar
-          </button>
-          <br />
-          <span>Você ainda não tem uma conta ?</span>
-          <a routerLink="/register" class="btn btn-link">Cadastre-se</a>
-        </div>
-      </form>
+          </div>
+          <div class="form-group">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              (click)="logar()"
+              [routerLink]="['/cliente']"
+            >
+              Entrar
+            </button>
+            <br />
+            <span>Você ainda não tem uma conta ?</span>
+            <a routerLink="/register" class="btn btn-link">Cadastre-se</a>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>

@@ -1,7 +1,5 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, LOCALE_ID } from "@angular/core";
 
-// import { AppRoutingModule, routes } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { MenuComponent } from "./navegacao/menu/menu.component";
 import { FooterComponent } from "./navegacao/footer/footer.component";
@@ -20,6 +18,9 @@ import { rota } from "./app-routing.module";
 import { LoginService } from "./institucional/login/login.service";
 import { ClienteService } from "./cadastro/cliente/cliente.service";
 import { AuthInterceptor } from "./http.interceptor";
+import { SalaoService } from "./cadastro/salao/salao.service";
+import { ReverseStr } from "./institucional/pipe/reverse.pipe";
+import { BrowserModule } from "@angular/platform-browser";
 
 @NgModule({
   declarations: [
@@ -33,10 +34,10 @@ import { AuthInterceptor } from "./http.interceptor";
     ClienteComponent,
     SalaoComponent,
     LoginsalaoComponent,
+    ReverseStr,
   ],
   imports: [
     BrowserModule,
-    // AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -45,12 +46,14 @@ import { AuthInterceptor } from "./http.interceptor";
   providers: [
     LoginService,
     ClienteService,
+    SalaoService,
     { provide: APP_BASE_HREF, useValue: "" },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true,
     },
+    { provide: LOCALE_ID, useValue: "pt-BR" },
   ],
   bootstrap: [AppComponent],
 })

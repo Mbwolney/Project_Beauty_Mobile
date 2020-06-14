@@ -18,10 +18,10 @@ export const rota: Routes = [
   { path: "login", component: LoginComponent },
   { path: "loginSalao", component: LoginsalaoComponent },
   { path: "menu", component: MenuComponent },
-  { path: "cliente", component: ClienteComponent, canActivate: [AuthGuard] },
-  { path: "salao", component: SalaoComponent, canActivate: [AuthGuard] },
+  { path: "cliente", component: ClienteComponent },
+  { path: "salao", component: SalaoComponent },
 ];
-
+//  canActivate: [AuthGuard]
 // @NgModule({
 //   imports: [RouterModule.forRoot(routes)],
 //   exports: [RouterModule],

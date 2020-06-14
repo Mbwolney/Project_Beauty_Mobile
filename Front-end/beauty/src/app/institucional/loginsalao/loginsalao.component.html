@@ -1,1 +1,60 @@
-<p>loginsalao works!</p>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Sua agenda sempre lotada</h1>
+    <p class="lead">
+      Programa para Estabelecimentos de Beleza. Atrair e manter clientes nunca
+      foi tão fácil
+    </p>
+
+    <div class="row justify-content-center">
+      <div class="col-7">
+        <img
+          src="../../../assets/image/salaodebeleza.jpg"
+          class="img-fluid wd-100"
+          alt=""
+        />
+      </div>
+      <div class="col-5">
+        <form>
+          <div class="form-group">
+            <label for="username">Email</label>
+            <input
+              type="email"
+              formControlName="username"
+              class="form-control"
+              id="user"
+              name="user"
+              [ngModel]="user"
+              placeholder="nome@exemplo.com"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Senha</label>
+            <input
+              type="password"
+              formControlName="password"
+              class="form-control"
+              id="password"
+              name="password"
+              [ngModel]="password"
+              placeholder="senha"
+            />
+          </div>
+          <div class="form-group">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              (click)="logar()"
+              [routerLink]="['/salao']"
+            >
+              Entrar
+            </button>
+            <br />
+            <span>Você ainda não tem uma conta ?</span>
+            <a routerLink="/register" class="btn btn-link">Cadastre-se</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

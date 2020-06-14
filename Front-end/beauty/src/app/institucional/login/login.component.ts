@@ -1,7 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Validators, FormBuilder, FormGroup } from "@angular/forms";
-import { Router, ActivatedRoute } from "@angular/router";
-import { first } from "rxjs/operators";
+import { Router } from "@angular/router";
 import { LoginService } from "./login.service";
 
 @Component({
@@ -19,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   logar() {
     this.loginService.post(this.user, this.password).subscribe((r) => {
-      localStorage.setItem("acess_token", r.acess_token);
+      localStorage.setItem("access_token_ads04", r.access_token);
+      this.router.navigate(["/"]);
       console.log(r);
     });
   }

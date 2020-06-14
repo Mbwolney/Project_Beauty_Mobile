@@ -9,15 +9,15 @@ import { environment } from "src/environments/environment";
 export class ClienteService {
   constructor(private http: HttpClient) {}
 
-  salvar(cliente: any): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/cliente`, cliente);
-  }
+  // salvar(cliente: any): Observable<any> {
+  //   return this.http.post(`${environment.apiUrl}/cliente`, cliente);
+  // }
 
   listar(): Observable<any> {
-    return this.http.get(`${environment.apiUrl}/cliente`);
+    return this.http.get(`${environment.apiUrl}/servico`);
   }
 
-  deletar(id): Observable<any> {
-    return this.http.delete(`${environment.apiUrl}/cliente/${id}`);
-  }
+  // deletar(id): Observable<any> {
+  //   return this.http.delete(`${environment.apiUrl}/cliente/${id}`);
+  // }
 }

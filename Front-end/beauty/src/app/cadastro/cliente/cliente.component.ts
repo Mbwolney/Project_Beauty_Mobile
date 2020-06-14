@@ -23,13 +23,13 @@ export class ClienteComponent implements OnInit {
     this.cliente = { nome: "", endereco: "", cpf: "" };
   }
 
-  salvar() {
-    this.clienteService.salvar(this.cliente).subscribe((r) => {
-      this.listar();
-      this.criarCliente();
-    });
-    console.log(this.cliente);
-  }
+  // salvar() {
+  //   this.clienteService.salvar(this.cliente).subscribe((r) => {
+  //     this.listar();
+  //     this.criarCliente();
+  //   });
+  //   console.log(this.cliente);
+  // }
 
   listar() {
     this.clienteService.listar().subscribe((r) => {
@@ -37,22 +37,22 @@ export class ClienteComponent implements OnInit {
     });
   }
 
-  editar(c) {
-    this.cliente = c;
-  }
+  // editar(c) {
+  //   this.cliente = c;
+  // }
 
-  deletar(id) {
-    Swal.fire({
-      text: "Tem certeza??",
-      showCancelButton: true,
-      cancelButtonText: "Não",
-      confirmButtonText: "Sim, pode deletar!",
-    }).then((result) => {
-      if (result.value) {
-        this.clienteService.deletar(id).subscribe((r) => {
-          this.listar();
-        });
-      }
-    });
-  }
+  // deletar(id) {
+  //   Swal.fire({
+  //     text: "Tem certeza??",
+  //     showCancelButton: true,
+  //     cancelButtonText: "Não",
+  //     confirmButtonText: "Sim, pode deletar!",
+  //   }).then((result) => {
+  //     if (result.value) {
+  //       this.clienteService.deletar(id).subscribe((r) => {
+  //         this.listar();
+  //       });
+  //     }
+  //   });
+  // }
 }
