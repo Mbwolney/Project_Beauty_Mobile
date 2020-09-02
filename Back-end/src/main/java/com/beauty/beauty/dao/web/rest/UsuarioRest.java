@@ -9,7 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,7 +46,7 @@ public class UsuarioRest {
 			result.getAllErrors().forEach(error -> response.getErrors().add(error.getDefaultMessage()));
 			return ResponseEntity.badRequest().body(response);
 		}
-		// usuario.setSenha(PasswordUtils.gerarBCrypt(usuario.getSenha()));
+		//usuario.setSenha(PasswordUtils.gerarBCrypt(usuario.getSenha()));
 		usuario.setPerfilEnum(PerfilEnum.ROLE_USUARIO);
 		usuarioDao.save(usuario);
 		return ResponseEntity.ok(response);
@@ -61,5 +63,4 @@ public class UsuarioRest {
 		this.usuarioDao.findByEmail(usuario.getEmail())
 				.ifPresent(usu -> result.addError(new ObjectError("usuario", "Usuário já existente")));
 	}
-
 }

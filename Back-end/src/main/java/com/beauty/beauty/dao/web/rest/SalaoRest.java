@@ -2,6 +2,7 @@ package com.beauty.beauty.dao.web.rest;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.Principal;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -71,10 +73,10 @@ public class SalaoRest {
 	// return salaoDao.findAll();
 	// ß}
 
-	@DeleteMapping("/{id}")
-	public void delete(@PathVariable("id") Long id) {
-		salaoDao.deleteById(id);
-	}
+	// @DeleteMapping("/{id}")
+	// public void delete(@PathVariable("id") Long id) {
+	// salaoDao.deleteById(id);
+	// }
 
 	/**
 	 * Salão verification
